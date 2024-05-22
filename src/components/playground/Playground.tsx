@@ -26,19 +26,38 @@ const Playground: React.FC = () => {
     return (
         <div className="flex flex-col sm:flex-row h-screen p-4 bg-gray-900 gap-4">
             <div className="flex-1 flex flex-col h-full">
-                <Editor
-                    height="90vh"
-                    defaultLanguage="javascript"
-                    defaultValue={code}
-                    theme="vs-dark"
-                    onChange={(value) => setCode(value || '')}
-                    options={{
-                        automaticLayout: true,
-                        wordWrap: 'on',
-                        scrollBeyondLastLine: false,
-                        minimap: { enabled: false },
-                    }}
-                />
+                <div className="hidden md:block">
+
+                    <Editor
+                        height="85vh"
+                        defaultLanguage="javascript"
+                        defaultValue={code}
+                        theme="vs-dark"
+                        onChange={(value) => setCode(value || '')}
+                        options={{
+                            automaticLayout: true,
+                            wordWrap: 'on',
+                            scrollBeyondLastLine: false,
+                            minimap: { enabled: false },
+                        }}
+                    />
+                </div>
+                <div className="block md:hidden">
+
+                    <Editor
+                        height="50vh"
+                        defaultLanguage="javascript"
+                        defaultValue={code}
+                        theme="vs-dark"
+                        onChange={(value) => setCode(value || '')}
+                        options={{
+                            automaticLayout: true,
+                            wordWrap: 'on',
+                            scrollBeyondLastLine: false,
+                            minimap: { enabled: false },
+                        }}
+                    />
+                </div>
                 <button
                     onClick={runCode}
                     className="mt-4 px-4 py-2 bg-blue-600 text-white rounded hover:bg-blue-700"
